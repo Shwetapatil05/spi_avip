@@ -9,4 +9,4 @@ module slave_monitor_bfm(spi_if intf);
     $display("Slave Monitor BFM");
   end
 
-endmodule
+endmodule : slave_monitor_bfm

@@ -1,11 +1,13 @@
-
 //--------------------------------------------------------------------------------------------
 // Module      : HDL Top
 // Description : Has a interface and slave agent bfm.
 //--------------------------------------------------------------------------------------------
 
-`include "./spi_interface/spi_if.sv"
-`include "./slave_agent_bfm/slave_agent_bfm.sv"
+//-------------------------------------------------------
+// Including SPI interface and Slave Agent BFM Files
+//-------------------------------------------------------
+`include "spi_if.sv"
+`include "slave_agent_bfm.sv"
 
 module hdl_top;
 
@@ -13,9 +15,9 @@ module hdl_top;
     $display("HDL_TOP");
   end
   
- //-------------------------------------------------------
- // SPI Interface Instantiation
- //-------------------------------------------------------
+  //-------------------------------------------------------
+  // SPI Interface Instantiation
+  //-------------------------------------------------------
   spi_if intf();
 
   //-------------------------------------------------------
@@ -23,4 +25,4 @@ module hdl_top;
   //-------------------------------------------------------
   slave_agent_bfm slave_agent_bfm_h(.intf(intf));
 
-endmodule
+endmodule : hdl_top

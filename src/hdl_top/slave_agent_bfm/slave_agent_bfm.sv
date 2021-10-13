@@ -25,4 +25,4 @@ module slave_agent_bfm(spi_if intf);
   //-------------------------------------------------------
   slave_monitor_bfm slave_monitor_bfm_h(intf);
 
-endmodule
+endmodule : slave_agent_bfm

@@ -9,4 +9,4 @@ interface spi_if;
   logic mosi;
   logic ss;
 
-endinterface
+endinterface : spi_if
