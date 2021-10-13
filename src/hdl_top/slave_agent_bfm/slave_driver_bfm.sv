@@ -8,4 +8,4 @@ module slave_driver_bfm(spi_if intf);
     $display("Slave Driver BFM");
   end
 
-endmodule
+endmodule : slave_driver_bfm
