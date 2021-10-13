@@ -16,7 +16,7 @@ class env extends uvm_env;
   //-------------------------------------------------------
   // Declaring handles for both
   //-------------------------------------------------------
-  slave_agent_top sa_t_h;
+  slave_agent sa_h;
   virtual_sequencer v_sqr_h;
 
   //-------------------------------------------------------
@@ -51,7 +51,7 @@ function void env::build_phase(uvm_phase phase);
   super.build_phase(phase);
   `uvm_info(get_full_name(),"ENV: build_phase",UVM_LOW);
   v_sqr_h = virtual_sequencer::type_id::create("virtual_sequencer",this);
-  sa_t_h = slave_agent_top::type_id::create("slave_agent_top",this);
+  sa_h = slave_agent::type_id::create("slave_agent",this);
 endfunction : build_phase
 
 //--------------------------------------------------------------------------------------------

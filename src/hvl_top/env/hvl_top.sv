@@ -2,31 +2,13 @@
 // Module: Hvl top module
 //--------------------------------------------------------------------------------------------
 
-import uvm_pkg::*;
-`include "uvm_macros.svh"
-`include "../test/test_pkg.sv"
-
 module hvl_top;
-  import test_pkg::*;
-  
-/*
-  //-------------------------------------------------------
-  // clock, reset instantiation
-  //-------------------------------------------------------
-  bit clock;
-  bit reset;
-  
-  //-------------------------------------------------------
-  // clock-reset generation
-  //-------------------------------------------------------
-  always begin
-    #10 clock =~ clock;     
-  end
 
-  always begin 
-    #10 reset=~reset;
-  end
-  */
+  //-------------------------------------------------------
+  // Package : Importing Uvm Pakckage and Test Package
+  //-------------------------------------------------------
+  import test_pkg::*;
+  import uvm_pkg::*;
 
   //-------------------------------------------------------
   // run_test for simulation
@@ -35,4 +17,4 @@ module hvl_top;
     run_test("base_test");
   end
 
-  endmodule
+endmodule : hvl_top
