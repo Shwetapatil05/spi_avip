@@ -13,10 +13,14 @@ module hdl_top;
     $display("HDL_TOP");
   end
   
-  //SPI interface instantiation
+ //-------------------------------------------------------
+ // SPI Interface Instantiation
+ //-------------------------------------------------------
   spi_if intf();
 
-  //SPI BFM agent instantiation
+  //-------------------------------------------------------
+  // SPI BFM Agent Instantiation
+  //-------------------------------------------------------
   slave_agent_bfm slave_agent_bfm_h(.intf(intf));
 
 endmodule
