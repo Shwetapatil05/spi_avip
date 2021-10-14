@@ -4,7 +4,7 @@
 //--------------------------------------------------------------------------------------------
 // Class: env
 // Description:
-// Environment contains slave_agent_top and virtual_sequencer
+// Environment contains slave_agent_top and slave_virtual_sequencer
 //--------------------------------------------------------------------------------------------
 class env extends uvm_env;
 
@@ -17,7 +17,7 @@ class env extends uvm_env;
   // Declaring handles for both
   //-------------------------------------------------------
   slave_agent sa_h;
-  virtual_sequencer v_sqr_h;
+  slave_virtual_sequencer v_sqr_h;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -50,7 +50,7 @@ endfunction : new
 function void env::build_phase(uvm_phase phase);
   super.build_phase(phase);
   `uvm_info(get_full_name(),"ENV: build_phase",UVM_LOW);
-  v_sqr_h = virtual_sequencer::type_id::create("virtual_sequencer",this);
+  v_sqr_h = slave_virtual_sequencer::type_id::create("slave_virtual_sequencer",this);
   sa_h = slave_agent::type_id::create("slave_agent",this);
 endfunction : build_phase
 
