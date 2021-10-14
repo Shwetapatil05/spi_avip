@@ -21,8 +21,8 @@ package test_pkg;
   `include "slave_monitor_proxy.sv"
   `include "slave_agent.sv"
   
-  `include "virtual_sequence.sv"
-  `include "virtual_sequencer.sv"
+  `include "slave_virtual_sequence.sv"
+  `include "slave_virtual_sequencer.sv"
   `include "env.sv"
 
   `include "base_test.sv"

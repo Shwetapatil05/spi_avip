@@ -1,17 +1,17 @@
-  `ifndef VIRTUAL_SEQUENCE_INCLUDED_
-  `define VIRTUAL_SEQUENCE_INCLUDED_
+  `ifndef SLAVE_VIRTUAL_SEQUENCE_INCLUDED_
+  `define SLAVE_VIRTUAL_SEQUENCE_INCLUDED_
 
   //--------------------------------------------------------------------------------------------
-  // Class: virtual_sequence
+  // Class: slave_virtual_sequence
   // Description of the class
   // this class contains transactions
   //--------------------------------------------------------------------------------------------
-  class virtual_sequence extends uvm_sequence #(slave_tx);
+  class slave_virtual_sequence extends uvm_sequence #(slave_tx);
 
   //register with factory so can use create uvm_methods
   //and override in future if neccessary
 
-  `uvm_object_utils(virtual_sequence)
+  `uvm_object_utils(slave_virtual_sequence)
 
   //  env_config e_cfg;
 
@@ -21,20 +21,20 @@
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
-  extern function new(string name = "virtual_sequence");
+  extern function new(string name = "slave_virtual_sequence");
   extern task body();
 
-  endclass : virtual_sequence
+  endclass : slave_virtual_sequence
 
   //--------------------------------------------------------------------------------------------
   // Construct: new
   // initialize the slave_mon class object
   //
   // Parameters:
-  //  name - instance name of the  virtual_sequence
+  //  name - instance name of the  slave_virtual_sequence
   //  parent - parent under which this component is created
   //--------------------------------------------------------------------------------------------
-  function virtual_sequence::new(string name = "virtual_sequence");
+  function slave_virtual_sequence::new(string name = "slave_virtual_sequence");
     super.new(name);
   endfunction : new
   
@@ -46,7 +46,7 @@
   //phase -stores the current phase
   //-------------------------------------------------------
 
-  task virtual_sequence::body();
+  task slave_virtual_sequence::body();
 
   endtask:body
 
