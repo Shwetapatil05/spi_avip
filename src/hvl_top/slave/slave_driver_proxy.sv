@@ -37,8 +37,7 @@ endclass : slave_driver_proxy
 function slave_driver_proxy::new(string name = "slave_driver_proxy", uvm_component parent = null);
   super.new(name, parent);
   s_drv_bfm_h.s_drv_proxy_h = this;
-endfunction : new
-
+endfunctio: slave_driver_proxy
 //--------------------------------------------------------------------------------------------
 // Function: build_phase
 // // TODO(mshariff): COmments
@@ -52,7 +51,7 @@ function void slave_driver_proxy::build_phase(uvm_phase phase);
 //  if(!uvm_config_db #(slave_agent_config)::get(this,"","slave_agent_config",sa_cfg_h))
 //		`uvm_fatal("CONFIG","cannot get() sa_cfg_h")
     
-  if(!uvm_config_db #(virtual slave_driver_bfm)::get(this,"","slave_driver_bfm",s_drv_bfm_h))
+  if(!uvm_config_db #(slave_driver_bfm)::get(this,"","slave_driver_bfm",s_drv_bfm_h))
   	`uvm_fatal("CONFIG","cannot get() s_drv_bfm_h")
 endfunction : build_phase
 
@@ -81,9 +80,9 @@ task slave_driver_proxy::run_phase(uvm_phase phase);
 
   forever begin
     seq_item_port.get_next_item(req);
-    
+  
     drive_to_dut();
-    
+
     seq_item_port.item_done();
   end
 
@@ -91,12 +90,15 @@ endtask : run_phase
 
 task slave_driver_proxy::drive_to_dut();
   foreach(req.data_master_in_slave_out[i]) begin
+  //repeat(1) begin
     bit [7:0] data;
+
 //    bit cpol;
 //    bit cpha;
     
-    data = req.master_out_slave_in[i];
-    
+   data = req.master_out_slave_in[i];
+   //data = 8'd25;
+
     case ({tx.cpol,tx.cpha})
       2'b00: s_drv_bfm_h.drive_mosi_pos_miso_neg(data);
       2'b01: s_drv_bfm_h.drive_mosi_neg_miso_pos(data);
