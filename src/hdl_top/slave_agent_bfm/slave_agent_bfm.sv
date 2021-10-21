@@ -22,7 +22,7 @@ module slave_agent_bfm(spi_if intf);
   // Setting Slave_driver_bfm config
   //-------------------------------------------------------
   initial begin
-    uvm_config_db#(slave_driver_bfm)::set(null,"*", "slave_driver_bfm", s_drv_bfm_h); 
+    uvm_config_db#(virtual slave_driver_bfm)::set(null,"*", "slave_driver_bfm", s_drv_bfm_h); 
   end
 
   //-------------------------------------------------------
