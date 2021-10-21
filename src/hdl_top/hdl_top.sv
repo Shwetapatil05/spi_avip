@@ -7,6 +7,12 @@
 //--------------------------------------------------------------------------------------------
 
 module hdl_top;
+  
+  //-------------------------------------------------------
+  // Package : Importing Uvm Pakckage and Test Package
+  //-------------------------------------------------------
+  import test_pkg::*;
+  import uvm_pkg::*;
 
   //-------------------------------------------------------
   // Clock Reset Initialization
@@ -39,14 +45,17 @@ module hdl_top;
   end
 
   //-------------------------------------------------------
-  // SPI Interface Instantiation
+  // Declaring SPI and Slave_driver_bfm Interface
   //-------------------------------------------------------
   spi_if intf();
+//  slave_driver_bfm s_drv_bfm_h (intf.SLV_DRV_MP, intf.MON_MP);
 
   //-------------------------------------------------------
-  // SPI BFM Agent Instantiation
+  // Setting Slave_driver_bfm config
   //-------------------------------------------------------
-  slave_agent_bfm slave_agent_bfm_h(intf);
+//  initial begin
+ //   uvm_config_db #(virtual slave_driver_bfm)::set(null,"*", "slave_driver_bfm", s_drv_bfm_h); 
+//  end
 
 endmodule : hdl_top
 

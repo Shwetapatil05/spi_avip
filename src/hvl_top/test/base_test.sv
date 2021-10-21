@@ -70,7 +70,7 @@ function void base_test::build_phase(uvm_phase phase);
     //Below line is used to switch between passive and active agents
     //sa_cfg_h[i].is_active = UVM_PASSIVE;
     e_cfg_h.sa_cfg_h[i]=sa_cfg_h[i];
-    uvm_config_db #(slave_agent_config)::set(this,"*","slave_agent_config",e_cfg_h.sa_cfg_h[i]);
+    uvm_config_db #(slave_agent_config)::set(this,"*","slave_agent_config",sa_cfg_h[i]);
     if(!uvm_config_db #(virtual spi_if)::get(this,"","vif",vif)) begin
       `uvm_fatal("TEST","COULDNT GET")
     end
